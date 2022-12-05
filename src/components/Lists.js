@@ -15,7 +15,7 @@ const StyledText = styled.div`
   font-weight: 700;
 `;
 
-const Lists = ({ listData, handleItemToggle, handleItemRemove }) => {
+const Lists = ({ listData = [], handleItemToggle, handleItemRemove }) => {
   return (
     // 얘는 리스트 페이지마다 놔줘야하나?
     <TodoListBlock>
@@ -37,4 +37,4 @@ const Lists = ({ listData, handleItemToggle, handleItemRemove }) => {
   );
 };
 
-export default TodoItemList;
+export default Lists;

@@ -1,6 +1,7 @@
 import "./App.css";
 import { createGlobalStyle } from "styled-components";
 import Header from "./components/Header";
+import Habit from "./pages/Habit";
 import Footer from "./components/Footer";
 
 const GlobalStyle = createGlobalStyle`
@@ -23,6 +24,7 @@ function App() {
       <GlobalStyle />
       <div className="App">
         <Header />
+        <Habit />
         <Footer />
       </div>
     </>

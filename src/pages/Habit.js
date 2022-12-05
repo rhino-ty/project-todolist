@@ -1,7 +1,20 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Lists from "../components/Lists";
+import { deleteHabit } from "../store/slice/listSilce";
 
 const Habit = () => {
-  return <div></div>;
+  const habitLists = useSelector((state) => state.lists.listData.habitTodos);
+  console.log(habitLists);
+  const dispatch = useDispatch();
+  const deleteHabit = (itemId) => {
+    dispatch(deleteHabit(itemId));
+  };
+  return (
+    <>
+      <Lists listData={habitLists} handleItemRemove={deleteHabit} />
+    </>
+  );
 };
 
 export default Habit;

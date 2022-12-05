@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import DeleteIcon from "@material-ui/icons/Delete";
-import DoneIcon from "@material-ui/icons/Done";
+import { AiOutlineDelete } from "react-icons/ai";
+import { AiOutlineCheck } from "react-icons/ai";
 
 const TodoItemBlock = styled.div`
   display: flex;
@@ -9,13 +9,10 @@ const TodoItemBlock = styled.div`
   padding-top: 12px;
   padding-bottom: 12px;
   &:hover {
-    ${Remove} {
-      display: initial;
-    }
   }
 `;
 
-const Remove = styled.div`
+const Remove = styled(AiOutlineDelete)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,7 +25,7 @@ const Remove = styled.div`
   display: none;
 `;
 
-const CheckCircle = styled.div`
+const CheckCircle = styled(AiOutlineCheck)`
   width: 20px;
   height: 20px;
   border-radius: 10px;
@@ -49,18 +46,22 @@ const CheckCircle = styled.div`
 
 const Text = styled.span``;
 
-const List = ({ listData, handleRemove, handleToggle }) => {
-  const { id, text, done } = listData;
+const List = ({ key, id, text, done, handleToggle, handleRemove }) => {
   return (
-    <TodoItemBlock>
-      <CheckCircle onClick={() => handleToggle(id)} done={done}>
-        {done && <DoneIcon fontSize="small" />}
-      </CheckCircle>
-      <Text done={done}>{text}</Text>
-      <Remove onClick={() => handleRemove(id)}>
-        <DeleteIcon fontSize="small" />
-      </Remove>
-    </TodoItemBlock>
+    <>
+      <TodoItemBlock>
+        {/* <CheckCircle onClick={() => handleToggle(id)} done={done}>
+          {done && <AiOutlineCheck fontSize="small" />}
+        </CheckCircle>
+        <Text done={done}>{text}</Text>
+        <Remove onClick={() => handleRemove(id)}>
+          <AiOutlineDelete fontSize="small" />
+        </Remove> */}
+        <CheckCircle></CheckCircle>
+        <Text>{text}</Text>
+        <Remove></Remove>
+      </TodoItemBlock>
+    </>
   );
 };
 
