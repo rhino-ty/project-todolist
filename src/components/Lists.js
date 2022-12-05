@@ -15,16 +15,12 @@ const StyledText = styled.div`
   font-weight: 700;
 `;
 
-const handleItemToggle = () => {};
-const handleItemRemove = (id) => {};
-
-// filteredTodos, handleItemToggle, handleItemRemove
-const TodoItemList = () => {
+const Lists = ({ listData, handleItemToggle, handleItemRemove }) => {
   return (
     // 얘는 리스트 페이지마다 놔줘야하나?
     <TodoListBlock>
-      {filteredTodos && filteredTodos.length ? (
-        filteredTodos.map((todo) => (
+      {listData.length ? (
+        listData.map((todo) => (
           <List
             key={todo.id}
             id={todo.id}
