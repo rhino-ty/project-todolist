@@ -5,7 +5,7 @@ const initialState = {
   listData: listData,
 };
 
-const listSlice = createSlice({
+export const listSlice = createSlice({
   name: "lists",
   initialState,
   // 리스트 추가, 제거, 수정 액션 미리 넣어주기, 수정은 이따가..

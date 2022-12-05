@@ -20,12 +20,12 @@ const Lists = ({ listData, handleItemToggle, handleItemRemove }) => {
     // 얘는 리스트 페이지마다 놔줘야하나?
     <TodoListBlock>
       {listData.length ? (
-        listData.map((todo) => (
+        listData.map((list) => (
           <List
-            key={todo.id}
-            id={todo.id}
-            text={todo.text}
-            done={todo.done}
+            key={list.id}
+            id={list.id}
+            text={list.text}
+            done={list.done}
             handleToggle={handleItemToggle}
             handleRemove={handleItemRemove}
           />
