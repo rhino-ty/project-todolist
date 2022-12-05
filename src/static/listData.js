@@ -2,29 +2,35 @@ export const listData = {
   habitTodos: [
     {
       id: 1,
-      value: "먹기",
+      text: "먹기",
+      done: false,
     },
     {
       id: 2,
-      value: "씻기",
+      text: "씻기",
+      done: true,
     },
     {
       id: 3,
-      value: "공부하기",
+      text: "공부하기",
+      done: false,
     },
     {
       id: 4,
-      value: "⭐️게임하기",
+      text: "⭐️게임하기",
+      done: false,
     },
   ],
   dailyTodos: [
     {
       id: 1,
-      value: "무신사에서 옷사기",
+      text: "무신사에서 옷사기",
+      done: false,
     },
     {
       id: 2,
-      value: "Todo List 만들기",
+      text: "Todo List 만들기",
+      done: false,
     },
   ],
 };

@@ -47,7 +47,10 @@ const CheckCircle = styled.div`
     `}
 `;
 
-const List = () => {
+const Text = styled.span``;
+
+const List = ({ listData, handleRemove, handleToggle }) => {
+  const { id, text, done } = listData;
   return (
     <TodoItemBlock>
       <CheckCircle onClick={() => handleToggle(id)} done={done}>

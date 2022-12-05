@@ -1,6 +1,7 @@
 import "./App.css";
 import { createGlobalStyle } from "styled-components";
 import Header from "./components/Header";
+import Lists from "./components/ListItem/Lists";
 
 const GlobalStyle = createGlobalStyle`
   body {

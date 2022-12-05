@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import List from "./List";
-import { habitTodos, dailyTodos } from "src/static/listData.js";
 
 const TodoListBlock = styled.div`
   flex: 1;
@@ -16,7 +15,11 @@ const StyledText = styled.div`
   font-weight: 700;
 `;
 
-const TodoItemList = ({ filteredTodos, handleItemToggle, handleItemRemove }) => {
+const handleItemToggle = () => {};
+const handleItemRemove = (id) => {};
+
+// filteredTodos, handleItemToggle, handleItemRemove
+const TodoItemList = () => {
   return (
     // 얘는 리스트 페이지마다 놔줘야하나?
     <TodoListBlock>
