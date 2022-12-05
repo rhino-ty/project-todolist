@@ -17,10 +17,10 @@ const Remove = styled(AiOutlineDelete)`
   align-items: center;
   justify-content: center;
   color: #dee2e6;
-  font-size: 13px;
+  font-size: 17px;
   cursor: pointer;
   &:hover {
-    color: #ff6bc6;
+    color: #bbe1fa;
   }
   display: none;
 `;
