@@ -36,7 +36,7 @@ const ModalBackdrop = styled.div`
   cursor: pointer;
 `;
 
-// Todo:
+// TODO: useEffect를 활용해 모달이벤트와 달력 데이터를 바뀌게 해보기
 
 const Header = () => {
   // 캘린더 상태값
