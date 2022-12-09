@@ -18,11 +18,11 @@ export const listSlice = createSlice({
     },
     deleteHabit: (state, action) => {
       const { id } = action.payload;
-      state.listData.habitTodos((el) => el.id !== id);
+      state.listData.habitTodos.filter((el) => el.id !== id);
     },
     deleteDaily: (state, action) => {
       const { id } = action.payload;
-      state.listData.dailyTodos((el) => el.id !== id);
+      state.listData.dailyTodos.filter((el) => el.id !== id);
     },
   },
 });
