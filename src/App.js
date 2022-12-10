@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
   width: 428px;
   height: 738px;
   border-radius: 10px;
-  margin: auto;
+  margin: 20px auto;
   box-shadow: 0px 0px 63px -14px rgba(0,0,0,0.75);
   }
 `;
