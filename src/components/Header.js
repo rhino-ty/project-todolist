@@ -24,6 +24,8 @@ const DayOfWeek = styled.div`
 `;
 const ModalContainer = styled.div`
   margin: auto;
+  position: relative;
+  z-index: 2;
 `;
 const ModalBackdrop = styled.div`
   // Modal이 떴을 때의 배경을 깔아주는 CSS를 구현
@@ -33,7 +35,6 @@ const ModalBackdrop = styled.div`
   bottom: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.5);
-  cursor: pointer;
 `;
 
 // TODO: useEffect를 활용해 모달이벤트와 달력 데이터를 바뀌게 해보기
