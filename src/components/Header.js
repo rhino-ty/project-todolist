@@ -59,7 +59,7 @@ const Header = () => {
       </HeaderContainer>
       <ModalContainer>
         {isModalOpen && (
-          <ModalBackdrop onClick={modalHandler}>
+          <ModalBackdrop>
             <Calendar onChange={onChange} value={value} />
           </ModalBackdrop>
         )}
