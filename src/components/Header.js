@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import moment from "moment";
 import "./Calendar.css"; // css import
@@ -44,8 +44,12 @@ const Header = () => {
   // 모달 노출 상태값
   const [isModalOpen, setIsModalOpen] = useState(false);
   const modalHandler = (e) => {
-    setIsModalOpen(!isModalOpen);
+    setIsModalOpen(true);
   };
+  // useEffect에 달력 값이 변하면 setIsModalOpen가 false가 되고 달력 값을 그대로 전달하게
+  useEffect(() => {
+    setIsModalOpen(false);
+  }, [value]);
 
   return (
     <>
