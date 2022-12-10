@@ -3,28 +3,6 @@ import styled, { css } from "styled-components";
 import { AiOutlineDelete } from "react-icons/ai";
 import { AiOutlineCheck } from "react-icons/ai";
 
-const TodoItemBlock = styled.div`
-  display: flex;
-  align-items: center;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  &:hover {
-  }
-`;
-
-const Remove = styled(AiOutlineDelete)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #dee2e6;
-  font-size: 17px;
-  cursor: pointer;
-  &:hover {
-    color: #bbe1fa;
-  }
-  display: none;
-`;
-
 const CheckCircle = styled(AiOutlineCheck)`
   width: 20px;
   height: 20px;
@@ -44,7 +22,33 @@ const CheckCircle = styled(AiOutlineCheck)`
     `}
 `;
 
-const Text = styled.span``;
+const Text = styled.div`
+  font-size: 20px;
+  cursor: pointer;
+`;
+
+const Remove = styled(AiOutlineDelete)`
+  color: #dee2e6;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  right: 0;
+  &:hover {
+    color: #bbe1fa;
+  }
+`;
+
+const TodoItemBlock = styled.div`
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  &:hover ${Remove} {
+    display: block;
+  }
+`;
 
 const List = ({ key, id, text, done, handleToggle, handleRemove }) => {
   return (
