@@ -2,6 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import Header from "./components/Header";
 import Habit from "./pages/Habit";
 import Footer from "./components/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -20,14 +21,14 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <GlobalStyle />
       <div className="App">
         <Header />
-        <Habit />
+        <Routes>{<Route exact path="/" element={<Habit />} />}</Routes>
         <Footer />
       </div>
-    </>
+    </BrowserRouter>
   );
 }
 
