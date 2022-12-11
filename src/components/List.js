@@ -50,7 +50,7 @@ const TodoItemBlock = styled.div`
   }
 `;
 
-const List = ({ key, id, text, done, handleToggle, handleRemove }) => {
+const List = ({ id, text, done, handleToggle, handleRemove }) => {
   return (
     <>
       <TodoItemBlock>
