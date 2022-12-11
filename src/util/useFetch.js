@@ -1,25 +1,28 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 
-const useFetch = (url) => {
-  const [habitLists, setLists] = useState(null);
+function useFetch(url) {
+  //null설정한 이유: 모든 data가 같진 않기 때문
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
   useEffect(() => {
-    fetch(url)
-      .then((res) => {
-        if (!res.ok) {
-          throw Error("could not fetch the data for that resource");
-        }
-        return res.json();
-      })
-      .then((data) => {
-        setLists(data);
-        console.log(data);
+    setLoading(true);
+    axios
+      .get(url)
+      .then((response) => {
+        setData(response.data);
       })
       .catch((err) => {
-        console.error("Error", err);
+        setError(err);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }, [url]);
 
-  return habitLists;
-};
+  return { data, loading, error };
+}
 
 export default useFetch;
