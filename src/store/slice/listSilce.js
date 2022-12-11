@@ -26,3 +26,5 @@ export const listSlice = createSlice({
     },
   },
 });
+
+export const { addHabit, addDaily, deleteHabit, deleteDaily } = listData.actions;

@@ -5,6 +5,7 @@ const store = configureStore({
   reducer: {
     lists: listSlice.reducer,
     // check: checkSlice.reducer,
+    // date: dateSlice.reducer,
   },
 });
 
