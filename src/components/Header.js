@@ -51,6 +51,7 @@ const Header = () => {
   useEffect(() => {
     setIsModalOpen(false);
   }, [value]);
+  // TODO: 날짜 데이터를 이런 형식으로 넘기기 moment().format("YYYY/MM/DD");
 
   return (
     <>
