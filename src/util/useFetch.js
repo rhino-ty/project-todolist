@@ -3,7 +3,7 @@ import axios from "axios";
 
 function useFetch(url) {
   //null설정한 이유: 모든 data가 같진 않기 때문
-  const [data, setData] = useState(null);
+  const [list, setList] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -12,7 +12,7 @@ function useFetch(url) {
     axios
       .get(url)
       .then((response) => {
-        setData(response.data);
+        setList(response.data);
       })
       .catch((err) => {
         setError(err);
@@ -22,7 +22,7 @@ function useFetch(url) {
       });
   }, [url]);
 
-  return { data, loading, error };
+  return { list, loading, error };
 }
 
 export default useFetch;
