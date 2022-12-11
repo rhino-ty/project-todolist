@@ -1,15 +1,16 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
 import Lists from "../components/Lists";
-import { deleteHabit } from "../store/slice/listSilce";
+import useFetch from "../util/useFetch";
+import Loading from "../components/Loading";
 
-const Habit = () => {
-  const habitLists = useSelector((state) => state.lists.listData.habitTodos);
-  console.log(habitLists);
-  const dispatch = useDispatch();
+const Habit = ({ habitLists }) => {
+  const { list } = useFetch("http://localhost:3001/habitTodos");
+  console.log(list);
+
   return (
     <>
-      <Lists listData={habitLists} handleItemRemove={(itemId) => dispatch(deleteHabit(itemId))} />
+      {/* <Lists listData={habitLists} handleItemRemove={handleItemRemove} /> */}
+      {list ? <Lists listData={list} /> : <Loading />}
     </>
   );
 };
