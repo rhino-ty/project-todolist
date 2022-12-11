@@ -3,7 +3,7 @@ import Lists from "../components/Lists";
 import useFetch from "../util/useFetch";
 import Loading from "../components/Loading";
 
-const Habit = ({ habitLists }) => {
+const Habit = () => {
   const { list } = useFetch("http://localhost:3001/habitTodos");
   console.log(list);
 
