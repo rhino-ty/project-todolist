@@ -7,12 +7,9 @@ const Habit = () => {
   const habitLists = useSelector((state) => state.lists.listData.habitTodos);
   console.log(habitLists);
   const dispatch = useDispatch();
-  const deleteHabit = (itemId) => {
-    dispatch(deleteHabit(itemId));
-  };
   return (
     <>
-      <Lists listData={habitLists} handleItemRemove={deleteHabit} />
+      <Lists listData={habitLists} handleItemRemove={(itemId) => dispatch(deleteHabit(itemId))} />
     </>
   );
 };
