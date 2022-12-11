@@ -1,34 +1,29 @@
 import axios from "axios";
 
-export const listCreate = (url, data) => {
-  axios
-    .post(url, {
+export const listCreate = async (url, data) => {
+  try {
+    await axios.post(url, {
       data: JSON.stringify(data),
-    })
-    .catch((error) => {
-      console.error("Error", error);
     });
-};
-
-export const listRead = (url) => {
-  axios
-    .get(url)
-    .then((res) => {
-      return res.json();
-    })
-    .catch((error) => {
-      console.error("Error", error);
-    });
-};
-
-export const listUpdate = (url, id, data) => {
-  axios.put(`${url}${id}`, { data: JSON.stringify(data) }).catch((error) => {
+  } catch (error) {
     console.error("Error", error);
-  });
+  }
 };
 
-export const listDelete = (url, id) => {
-  fetch.delete(`${url}${id}`).catch((error) => {
+// Read는 useFetch로
+
+export const listUpdate = async (url, id, data) => {
+  try {
+    await axios.put(`${url}${id}`, { data: JSON.stringify(data) });
+  } catch (error) {
     console.error("Error", error);
-  });
+  }
+};
+
+export const listDelete = async (url, id) => {
+  try {
+    await axios.delete(`${url}${id}`);
+  } catch (error) {
+    console.error("Error", error);
+  }
 };
