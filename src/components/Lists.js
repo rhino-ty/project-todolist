@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import styled from "styled-components";
 import List from "./List";
 
@@ -16,11 +15,7 @@ const StyledText = styled.div`
 `;
 
 const Lists = ({ listData = [], handleItemToggle, handleItemRemove }) => {
-  // side effect 때문에 listData가 구성될때 한번 리렌더링되게 하기!
-  useEffect(() => {}, [listData]);
-
   return (
-    // 얘는 리스트 페이지마다 놔줘야하나?
     <TodoListBlock>
       {listData.length ? (
         listData.map((list) => (

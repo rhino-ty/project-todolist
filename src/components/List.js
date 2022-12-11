@@ -14,6 +14,7 @@ const CheckCircle = styled(AiOutlineCheck)`
   justify-content: center;
   margin-right: 10px;
   cursor: pointer;
+
   ${(props) =>
     props.done &&
     css`
@@ -34,6 +35,7 @@ const Remove = styled(AiOutlineDelete)`
   display: none;
   position: absolute;
   right: 0;
+
   &:hover {
     color: #bbe1fa;
   }
@@ -45,8 +47,11 @@ const TodoItemBlock = styled.div`
   position: relative;
   padding-top: 12px;
   padding-bottom: 12px;
-  &:hover ${Remove} {
-    display: block;
+
+  &:hover {
+    ${Remove} {
+      display: initial;
+    }
   }
 `;
 

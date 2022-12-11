@@ -23,6 +23,7 @@ export const listUpdate = async (url, id, data) => {
 export const listDelete = async (url, id) => {
   try {
     await axios.delete(`${url}/${id}`);
+    window.location.reload();
   } catch (error) {
     console.error("Error", error);
   }
