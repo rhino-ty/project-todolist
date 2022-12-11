@@ -51,19 +51,16 @@ const TodoItemBlock = styled.div`
 `;
 
 const List = ({ id, text, done, handleToggle, handleRemove }) => {
+  const onRemove = () => {
+    handleRemove(id);
+  };
+
   return (
     <>
       <TodoItemBlock>
-        {/* <CheckCircle onClick={() => handleToggle(id)} done={done}>
-          {done && <AiOutlineCheck fontSize="small" />}
-        </CheckCircle>
-        <Text done={done}>{text}</Text>
-        <Remove onClick={() => handleRemove(id)}>
-          <AiOutlineDelete fontSize="small" />
-        </Remove> */}
         <CheckCircle></CheckCircle>
         <Text>{text}</Text>
-        <Remove></Remove>
+        <Remove onClick={onRemove} />
       </TodoItemBlock>
     </>
   );

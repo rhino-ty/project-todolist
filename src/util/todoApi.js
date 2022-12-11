@@ -14,7 +14,7 @@ export const listCreate = async (url, data) => {
 
 export const listUpdate = async (url, id, data) => {
   try {
-    await axios.put(`${url}${id}`, { data: JSON.stringify(data) });
+    await axios.put(`${url}/${id}`, { data: JSON.stringify(data) });
   } catch (error) {
     console.error("Error", error);
   }
@@ -22,7 +22,7 @@ export const listUpdate = async (url, id, data) => {
 
 export const listDelete = async (url, id) => {
   try {
-    await axios.delete(`${url}${id}`);
+    await axios.delete(`${url}/${id}`);
   } catch (error) {
     console.error("Error", error);
   }
