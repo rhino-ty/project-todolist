@@ -5,6 +5,7 @@ export const listCreate = async (url, data) => {
     await axios.post(url, {
       data: JSON.stringify(data),
     });
+    window.location.reload();
   } catch (error) {
     console.error("Error", error);
   }
@@ -15,6 +16,7 @@ export const listCreate = async (url, data) => {
 export const listUpdate = async (url, id, data) => {
   try {
     await axios.put(`${url}/${id}`, { data: JSON.stringify(data) });
+    window.location.reload();
   } catch (error) {
     console.error("Error", error);
   }
