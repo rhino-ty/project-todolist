@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import { AiOutlineDelete } from "react-icons/ai";
 import { AiOutlineCheck } from "react-icons/ai";
@@ -55,7 +55,86 @@ const TodoItemBlock = styled.div`
   }
 `;
 
-const List = ({ id, text, done, handleToggle, handleRemove }) => {
+const Input = styled.input`
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  font-size: 20px;
+  color: #333;
+  border: 1px solid #ccc;
+  /* border-radius: 4px; */
+
+  &:focus {
+    outline: none;
+    border-color: #333;
+  }
+`;
+
+const ModalContainer = styled.div`
+  margin: auto;
+  position: relative;
+  z-index: 2;
+`;
+const ModalBackdrop = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+`;
+const ModalView = styled.div.attrs((props) => ({
+  role: "dialog",
+}))`
+  position: absolute;
+  top: calc(50vh - 100px);
+  left: calc(50vw - 200px);
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  width: 400px;
+  height: 150px;
+`;
+const ModalCloseBtn = styled.button`
+  background-color: #fff;
+  color: #000;
+  text-decoration: none;
+  border: none;
+  position: absolute;
+  top: 10%;
+  cursor: pointer;
+  font-size: 20px;
+`;
+
+const List = ({ id, text, done, handleToggle, handleRevise, handleRemove }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [revisedText, setRevisedText] = useState(text);
+
+  const modalOpenHandler = (e) => {
+    setIsModalOpen(true);
+  };
+  const modalCloseHandler = () => {
+    setIsModalOpen(false);
+  };
+
+  const onChange = (e) => {
+    setRevisedText(e.target.value);
+  };
+  const onRevise = () => {
+    handleRevise(id, revisedText);
+    modalCloseHandler();
+  };
+  const onKeyPress = (e) => {
+    if (e.key === "Enter") {
+      onRevise();
+    }
+  };
+
+  const onToggle = () => {
+    handleToggle(id);
+  };
   const onRemove = () => {
     handleRemove(id);
   };
@@ -64,9 +143,19 @@ const List = ({ id, text, done, handleToggle, handleRemove }) => {
     <>
       <TodoItemBlock>
         <CheckCircle></CheckCircle>
-        <Text>{text}</Text>
+        <Text onClick={modalOpenHandler}>{text}</Text>
         <Remove onClick={onRemove} />
       </TodoItemBlock>
+      <ModalContainer>
+        {isModalOpen && (
+          <ModalBackdrop>
+            <ModalView>
+              <ModalCloseBtn onClick={modalCloseHandler}>x</ModalCloseBtn>
+              <Input type="text" value={revisedText} onChange={onChange} onKeyPress={onKeyPress}></Input>
+            </ModalView>
+          </ModalBackdrop>
+        )}
+      </ModalContainer>
     </>
   );
 };

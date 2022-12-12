@@ -13,9 +13,18 @@ export const listCreate = async (url, data) => {
 
 // Read는 useFetch로
 
-export const listUpdate = async (url, id, data) => {
+export const listUpdate = async (url, id, data, done) => {
   try {
-    await axios.put(`${url}/${id}`, { data: JSON.stringify(data) });
+    await axios.patch(`${url}/${id}`, { id: id, text: JSON.stringify(data) });
+    window.location.reload();
+  } catch (error) {
+    console.error("Error", error);
+  }
+};
+
+export const doneUpdate = async (url, id, data, done) => {
+  try {
+    await axios.patch(`${url}/${id}`, { id: id, done: done });
     window.location.reload();
   } catch (error) {
     console.error("Error", error);

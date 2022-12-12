@@ -14,7 +14,7 @@ const StyledText = styled.div`
   font-weight: 700;
 `;
 
-const Lists = ({ listData = [], handleItemToggle, handleItemRemove }) => {
+const Lists = ({ listData = [], handleItemToggle, handleItemRevise, handleItemRemove }) => {
   return (
     <TodoListBlock>
       {listData.length ? (
@@ -25,6 +25,7 @@ const Lists = ({ listData = [], handleItemToggle, handleItemRemove }) => {
             text={list.text}
             done={list.done}
             handleToggle={handleItemToggle}
+            handleRevise={handleItemRevise}
             handleRemove={handleItemRemove}
           />
         ))
