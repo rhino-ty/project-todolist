@@ -61,12 +61,14 @@ const Input = styled.input`
   padding: 10px;
   font-size: 20px;
   color: #333;
-  border: 1px solid #ccc;
+  border: 1px solid #0f4c75;
+  background-color: #1b262c;
+  color: #eaeaea;
   /* border-radius: 4px; */
 
   &:focus {
     outline: none;
-    border-color: #333;
+    border-color: #0f4c75;
   }
 `;
 
@@ -83,13 +85,13 @@ const ModalBackdrop = styled.div`
   right: 0;
   background: rgba(0, 0, 0, 0.5);
 `;
-const ModalView = styled.div.attrs((props) => ({
+const ModalView = styled.div.attrs(() => ({
   role: "dialog",
 }))`
   position: absolute;
   top: calc(50vh - 100px);
   left: calc(50vw - 200px);
-  background-color: white;
+  background-color: #1b262c;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,8 +100,8 @@ const ModalView = styled.div.attrs((props) => ({
   height: 150px;
 `;
 const ModalCloseBtn = styled.button`
-  background-color: #fff;
-  color: #000;
+  background-color: #1b262c;
+  color: #eaeaea;
   text-decoration: none;
   border: none;
   position: absolute;
