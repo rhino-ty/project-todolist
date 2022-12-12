@@ -4,6 +4,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { AiOutlineCheck } from "react-icons/ai";
 
 const CheckCircle = styled(AiOutlineCheck)`
+  color: #1b262c;
   width: 20px;
   height: 20px;
   border-radius: 10px;
@@ -18,14 +19,21 @@ const CheckCircle = styled(AiOutlineCheck)`
   ${(props) =>
     props.done &&
     css`
-      border: 1px solid #38d9a9;
-      color: #38d9a9;
+      border: 1px solid #bbe1fa;
+      color: #bbe1fa;
     `}
 `;
 
 const Text = styled.div`
   font-size: 20px;
   cursor: pointer;
+
+  ${(props) =>
+    props.done &&
+    css`
+      text-decoration: line-through;
+      color: rgba(187, 225, 250, 0.5);
+    `}
 `;
 
 const Remove = styled(AiOutlineDelete)`
@@ -135,7 +143,7 @@ const List = ({ id, text, done, handleToggle, handleRevise, handleRemove }) => {
   };
 
   const onToggle = () => {
-    handleToggle(id);
+    handleToggle(id, !done);
   };
   const onRemove = () => {
     handleRemove(id);
@@ -144,8 +152,10 @@ const List = ({ id, text, done, handleToggle, handleRevise, handleRemove }) => {
   return (
     <>
       <TodoItemBlock>
-        <CheckCircle></CheckCircle>
-        <Text onClick={modalOpenHandler}>{text}</Text>
+        <CheckCircle done={done} onClick={onToggle}></CheckCircle>
+        <Text onClick={modalOpenHandler} done={done}>
+          {text}
+        </Text>
         <Remove onClick={onRemove} />
       </TodoItemBlock>
       <ModalContainer>

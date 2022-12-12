@@ -2,11 +2,16 @@ import React, { useEffect } from "react";
 import Lists from "../components/Lists";
 import useFetch from "../util/useFetch";
 import Loading from "../components/Loading";
-import { listDelete, listUpdate } from "../util/todoApi";
+import { listDelete, listUpdate, doneUpdate } from "../util/todoApi";
 
 const Habit = () => {
   const url = "http://localhost:3001/habitTodos";
   const { list, loading } = useFetch(url);
+
+  const handleItemToggle = (id, done) => {
+    console.log(id);
+    doneUpdate(url, id, done);
+  };
 
   const handleItemRevise = (id, data) => {
     console.log(id);
@@ -24,7 +29,12 @@ const Habit = () => {
   return (
     <>
       {!loading && list ? (
-        <Lists listData={list} handleItemRevise={handleItemRevise} handleItemRemove={handleItemRemove} />
+        <Lists
+          listData={list}
+          handleItemToggle={handleItemToggle}
+          handleItemRevise={handleItemRevise}
+          handleItemRemove={handleItemRemove}
+        />
       ) : (
         <Loading />
       )}

@@ -13,7 +13,7 @@ export const listCreate = async (url, data) => {
 
 // Read는 useFetch로
 
-export const listUpdate = async (url, id, data, done) => {
+export const listUpdate = async (url, id, data) => {
   try {
     await axios.patch(`${url}/${id}`, { id: id, text: JSON.stringify(data) });
     window.location.reload();
@@ -22,7 +22,7 @@ export const listUpdate = async (url, id, data, done) => {
   }
 };
 
-export const doneUpdate = async (url, id, data, done) => {
+export const doneUpdate = async (url, id, done) => {
   try {
     await axios.patch(`${url}/${id}`, { id: id, done: done });
     window.location.reload();
