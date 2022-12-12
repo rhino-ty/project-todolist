@@ -50,11 +50,15 @@ const DailyButton = styled.div`
 const Footer = () => {
   return (
     <FooterContainer>
-      <HabitButton>습관</HabitButton>
+      <HabitButton>
+        <Link to={`/`}>습관</Link>
+      </HabitButton>
       <CreateButtonContainer>
         <CreateButton>+</CreateButton>
       </CreateButtonContainer>
-      <DailyButton>일일 과제</DailyButton>
+      <DailyButton>
+        <Link to={`/daily`}>일일 과제</Link>
+      </DailyButton>
     </FooterContainer>
   );
 };
