@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
 const FooterContainer = styled.div`
@@ -17,6 +17,12 @@ const HabitButton = styled.div`
   flex: 1;
   justify-content: center;
   padding: 20px;
+
+  ${(props) =>
+    props.curruntPage &&
+    css`
+      color: #bbe1fa;
+    `}
 `;
 const CreateButtonContainer = styled.div`
   cursor: pointer;
@@ -45,19 +51,29 @@ const DailyButton = styled.div`
   flex: 1;
   justify-content: center;
   padding: 20px;
+
+  ${(props) =>
+    props.curruntPage &&
+    css`
+      color: #bbe1fa;
+    `}
+`;
+const LinkConainer = styled(Link)`
+  text-decoration: none;
+  color: white;
 `;
 
-const Footer = () => {
+const Footer = ({ curruntPage }) => {
   return (
     <FooterContainer>
-      <HabitButton>
-        <Link to={`/`}>습관</Link>
+      <HabitButton curruntPage={curruntPage}>
+        <LinkConainer to={`/`}>습관</LinkConainer>
       </HabitButton>
       <CreateButtonContainer>
         <CreateButton>+</CreateButton>
       </CreateButtonContainer>
-      <DailyButton>
-        <Link to={`/daily`}>일일 과제</Link>
+      <DailyButton curruntPage={curruntPage}>
+        <LinkConainer to={`/daily`}>일일 과제</LinkConainer>
       </DailyButton>
     </FooterContainer>
   );
