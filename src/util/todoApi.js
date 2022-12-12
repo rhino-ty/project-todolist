@@ -4,6 +4,7 @@ export const listCreate = async (url, data) => {
   try {
     await axios.post(url, {
       data: JSON.stringify(data),
+      done: false,
     });
     window.location.reload();
   } catch (error) {

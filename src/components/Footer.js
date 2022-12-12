@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
+import { listCreate } from "../util/todoApi";
 
 const FooterContainer = styled.div`
   display: flex;
@@ -63,19 +64,106 @@ const LinkConainer = styled(Link)`
   color: white;
 `;
 
+const ModalContainer = styled.div`
+  margin: auto;
+  position: relative;
+  z-index: 2;
+`;
+const ModalBackdrop = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+`;
+const ModalView = styled.div.attrs(() => ({
+  role: "dialog",
+}))`
+  position: absolute;
+  top: calc(50vh - 100px);
+  left: calc(50vw - 200px);
+  background-color: #1b262c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  width: 400px;
+  height: 150px;
+`;
+const ModalCloseBtn = styled.button`
+  background-color: #1b262c;
+  color: #eaeaea;
+  text-decoration: none;
+  border: none;
+  position: absolute;
+  top: 10%;
+  cursor: pointer;
+  font-size: 20px;
+`;
+
+const Input = styled.input`
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  font-size: 20px;
+  color: #333;
+  border: 1px solid #0f4c75;
+  background-color: #1b262c;
+  color: #eaeaea;
+  /* border-radius: 4px; */
+
+  &:focus {
+    outline: none;
+    border-color: #0f4c75;
+  }
+`;
+
 const Footer = ({ curruntPage }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [revisedText, setRevisedText] = useState("");
+  const modalOpenHandler = (e) => {
+    setIsModalOpen(true);
+  };
+  const modalCloseHandler = () => {
+    setIsModalOpen(false);
+  };
+  const onRevise = () => {
+    listCreate(revisedText);
+    modalCloseHandler();
+  };
+  const onChange = (e) => {
+    setRevisedText(e.target.value);
+  };
+  const onKeyPress = (e) => {
+    if (e.key === "Enter") {
+      onRevise();
+    }
+  };
   return (
-    <FooterContainer>
-      <HabitButton curruntPage={curruntPage}>
-        <LinkConainer to={`/`}>습관</LinkConainer>
-      </HabitButton>
-      <CreateButtonContainer>
-        <CreateButton>+</CreateButton>
-      </CreateButtonContainer>
-      <DailyButton curruntPage={curruntPage}>
-        <LinkConainer to={`/daily`}>일일 과제</LinkConainer>
-      </DailyButton>
-    </FooterContainer>
+    <>
+      <FooterContainer>
+        <HabitButton curruntPage={curruntPage}>
+          <LinkConainer to={`/`}>습관</LinkConainer>
+        </HabitButton>
+        <CreateButtonContainer>
+          <CreateButton onClick={modalOpenHandler}>+</CreateButton>
+        </CreateButtonContainer>
+        <DailyButton curruntPage={curruntPage}>
+          <LinkConainer to={`/daily`}>일일 과제</LinkConainer>
+        </DailyButton>
+      </FooterContainer>
+      <ModalContainer>
+        {isModalOpen && (
+          <ModalBackdrop>
+            <ModalView>
+              <ModalCloseBtn onClick={modalCloseHandler}>x</ModalCloseBtn>
+              <Input type="text" value={revisedText} onChange={onChange} onKeyPress={onKeyPress}></Input>
+            </ModalView>
+          </ModalBackdrop>
+        )}
+      </ModalContainer>
+    </>
   );
 };
 
