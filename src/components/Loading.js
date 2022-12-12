@@ -61,14 +61,14 @@ const LodaingComponent = styled.div`
 const Loading = () => {
   return (
     <LodaingComponent>
-      <div className="container">
+      {/* <div className="container">
         <svg className="loader" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 340">
           <circle cx="170" cy="170" r="160" stroke="#0f4c75" />
           <circle cx="170" cy="170" r="135" stroke="#eaeaea" />
           <circle cx="170" cy="170" r="110" stroke="#0f4c75" />
           <circle cx="170" cy="170" r="85" stroke="#eaeaea" />
         </svg>
-      </div>
+      </div> */}
     </LodaingComponent>
   );
 };
