@@ -1,9 +1,10 @@
 import axios from "axios";
 
-export const listCreate = async (url, data) => {
+export const listCreate = async (url, id, data) => {
   try {
     await axios.post(url, {
-      data: JSON.stringify(data),
+      id: id,
+      text: data,
       done: false,
     });
     window.location.reload();
@@ -16,7 +17,7 @@ export const listCreate = async (url, data) => {
 
 export const listUpdate = async (url, id, data) => {
   try {
-    await axios.patch(`${url}/${id}`, { id: id, text: JSON.stringify(data) });
+    await axios.patch(`${url}/${id}`, { id: id, text: data });
     window.location.reload();
   } catch (error) {
     console.error("Error", error);
