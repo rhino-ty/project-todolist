@@ -13,6 +13,10 @@ React: react-router-dom, CRA
 
 # 실행화면
 
+
+https://user-images.githubusercontent.com/94962427/207256261-78b02e6a-8cee-4ac0-a93b-c89cf1d88d52.mov
+
+
 # 아쉬운 점 / 더 할 점
 
 - [ ] 1. 서버를 나중에 만들어서 해보고 싶다. json-server로 만드니 반쪽짜리 프로젝트같은 생각이 든다.
