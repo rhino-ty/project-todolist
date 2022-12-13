@@ -2,7 +2,9 @@ import React, { useEffect } from "react";
 import Lists from "../components/Lists";
 import useFetch from "../util/useFetch";
 import Loading from "../components/Loading";
-import { listDelete, listUpdate, doneUpdate } from "../util/todoApi";
+import { listDelete, listUpdate, doneUpdate, listCreate } from "../util/todoApi";
+import Footer from "../components/Footer";
+import { v4 as uuidv4 } from "uuid";
 
 const Habit = () => {
   const url = "http://localhost:3001/habitTodos";
@@ -23,6 +25,10 @@ const Habit = () => {
     listDelete(url, id);
   };
 
+  const handleItemCreate = (text) => {
+    listCreate(url, uuidv4, text);
+  };
+
   // side effect 때문에 listData가 구성될때 한번 리렌더링되게 하기!
   useEffect(() => {}, [list]);
 
@@ -38,6 +44,7 @@ const Habit = () => {
       ) : (
         <Loading />
       )}
+      <Footer handleItemCreate={handleItemCreate} />
     </>
   );
 };

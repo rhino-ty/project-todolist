@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
-import { listCreate } from "../util/todoApi";
 
 const FooterContainer = styled.div`
   display: flex;
@@ -82,7 +81,7 @@ const ModalView = styled.div.attrs(() => ({
 }))`
   position: absolute;
   top: calc(50vh - 100px);
-  left: calc(50vw - 200px);
+  left: calc(50vw - 185px);
   background-color: #1b262c;
   display: flex;
   justify-content: center;
@@ -111,7 +110,6 @@ const Input = styled.input`
   border: 1px solid #0f4c75;
   background-color: #1b262c;
   color: #eaeaea;
-  /* border-radius: 4px; */
 
   &:focus {
     outline: none;
@@ -119,27 +117,30 @@ const Input = styled.input`
   }
 `;
 
-const Footer = ({ curruntPage }) => {
+const Footer = ({ curruntPage, handleItemCreate }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [revisedText, setRevisedText] = useState("");
+  const [text, setText] = useState("");
   const modalOpenHandler = (e) => {
     setIsModalOpen(true);
   };
   const modalCloseHandler = () => {
     setIsModalOpen(false);
   };
-  const onRevise = () => {
-    listCreate(revisedText);
-    modalCloseHandler();
-  };
+
   const onChange = (e) => {
-    setRevisedText(e.target.value);
+    setText(e.target.value);
+  };
+  const onCreate = () => {
+    handleItemCreate(text);
+    modalCloseHandler();
   };
   const onKeyPress = (e) => {
     if (e.key === "Enter") {
-      onRevise();
+      onCreate();
+      setText("");
     }
   };
+
   return (
     <>
       <FooterContainer>
@@ -158,7 +159,7 @@ const Footer = ({ curruntPage }) => {
           <ModalBackdrop>
             <ModalView>
               <ModalCloseBtn onClick={modalCloseHandler}>x</ModalCloseBtn>
-              <Input type="text" value={revisedText} onChange={onChange} onKeyPress={onKeyPress}></Input>
+              <Input type="text" value={text} onChange={onChange} onKeyPress={onKeyPress}></Input>
             </ModalView>
           </ModalBackdrop>
         )}

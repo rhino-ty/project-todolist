@@ -1,7 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import Header from "./components/Header";
 import Habit from "./pages/Habit";
-import Footer from "./components/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Daily from "./pages/Daily";
 
@@ -32,7 +31,6 @@ function App() {
           <Route exact path="/" element={<Habit />} />
           <Route exact path="/daily" element={<Daily />} />
         </Routes>
-        <Footer />
       </div>
     </BrowserRouter>
   );

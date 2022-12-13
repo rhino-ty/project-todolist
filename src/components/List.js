@@ -98,7 +98,7 @@ const ModalView = styled.div.attrs(() => ({
 }))`
   position: absolute;
   top: calc(50vh - 100px);
-  left: calc(50vw - 200px);
+  left: calc(50vw - 185px);
   background-color: #1b262c;
   display: flex;
   justify-content: center;
