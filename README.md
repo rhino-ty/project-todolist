@@ -6,10 +6,10 @@
 
 ## 사용 라이브러리
 
-달력 관련: react-calendar, moment
-CSS 툴: Styled-Components
-React: react-router-dom, CRA
-기타: Json-server, axios, uuid
+달력 관련: react-calendar, moment <br />
+CSS 툴: Styled-Components <br />
+React: react-router-dom, CRA <br />
+기타: Json-server, axios, uuid <br />
 
 # 실행화면
 
