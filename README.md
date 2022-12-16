@@ -4,7 +4,7 @@
 
 # 컴포넌트 기획
 
-1. 날짜가 있는 헤더: [React-calendar 라이브러리](https://github.com/wojtekmaj/react-calendar)를 사용![](https://velog.velcdn.com/images/okko8522/post/0b8ebcca-a103-444d-9ece-19ad17e04cba/image.png)
+1. 날짜가 있는 헤더: [React-calendar 라이브러리](https://github.com/wojtekmaj/react-calendar)를 사용<br />![](https://velog.velcdn.com/images/okko8522/post/0b8ebcca-a103-444d-9ece-19ad17e04cba/image.png)
 2. 리스트로 펼쳐지는 본 섹션: 체크박스, 글자를 클릭하면 수정되게, 마우스가 올라가면 삭제 버튼 구현
 3. 습관 / 생성버튼 / 일일 과제 페이지 3개로 나뉘어 펼침: 메인으로 습관이 나오도록 하고, 생성버튼은 가볍게 +로, 일일과제는 날짜가 지나면 그 전 거는 저장되고 초기화되게(날짜로 서버 데이터를 연동)
 
