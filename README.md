@@ -8,6 +8,11 @@ Todo 관리를 위한 웹 애플리케이션입니다.
 - 편리한 UI로 Todo를 쉽게 CRUD 할 수 있습니다.
 - Todo에 기한과 날짜를 고를 수 있습니다.
 
+## Contributors
+
+- FE: 윤태연()
+
+
 ## 컴포넌트 기획
 
 1. 날짜가 있는 헤더: [React-calendar 라이브러리](https://github.com/wojtekmaj/react-calendar)를 사용<br />![](https://velog.velcdn.com/images/okko8522/post/0b8ebcca-a103-444d-9ece-19ad17e04cba/image.png)
