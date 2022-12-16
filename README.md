@@ -1,7 +1,5 @@
 ![header](https://capsule-render.vercel.app/api?type=waving&height=200&color=1b262c)
 
-# 기록
-
 [![Velog's GitHub stats](https://velog-readme-stats.vercel.app/api?name=okko8522&color=dark&slug=Todo-리스트-만들기1-기본적인-구조-CRUD)](https://velog.io/@okko8522/Todo-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B01-%EA%B8%B0%EB%B3%B8%EC%A0%81%EC%9D%B8-%EA%B5%AC%EC%A1%B0-CRUD)
 
 # 컴포넌트 기획
