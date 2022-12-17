@@ -1,8 +1,13 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import Lists from "../components/Lists";
 import useFetch from "../util/useFetch";
 import Loading from "../components/Loading";
-import { listDelete, listUpdate, doneUpdate, listCreate } from "../util/todoApi";
+import {
+  listDelete,
+  listUpdate,
+  doneUpdate,
+  listCreate,
+} from "../util/todoApi";
 import Footer from "../components/Footer";
 import { v4 as uuidv4 } from "uuid";
 
