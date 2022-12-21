@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -34,7 +34,8 @@ const CreateButtonContainer = styled.div`
   height: 89px;
 
   &:hover {
-    box-shadow: 10px 14px 28px rgba(0, 0, 0, 0.25), 10px 10px 10px rgba(0, 0, 0, 0.22);
+    box-shadow: 10px 14px 28px rgba(0, 0, 0, 0.25),
+      10px 10px 10px rgba(0, 0, 0, 0.22);
   }
 `;
 const CreateButton = styled.div`
@@ -120,7 +121,7 @@ const Input = styled.input`
 const Footer = ({ curruntPage, handleItemCreate }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [text, setText] = useState("");
-  const modalOpenHandler = (e) => {
+  const modalOpenHandler = () => {
     setIsModalOpen(true);
   };
   const modalCloseHandler = () => {
@@ -159,7 +160,12 @@ const Footer = ({ curruntPage, handleItemCreate }) => {
           <ModalBackdrop>
             <ModalView>
               <ModalCloseBtn onClick={modalCloseHandler}>x</ModalCloseBtn>
-              <Input type="text" value={text} onChange={onChange} onKeyPress={onKeyPress}></Input>
+              <Input
+                type="text"
+                value={text}
+                onChange={onChange}
+                onKeyPress={onKeyPress}
+              ></Input>
             </ModalView>
           </ModalBackdrop>
         )}

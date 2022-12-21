@@ -1,5 +1,4 @@
 {
-  "homepage": "https://rhino-ty.github.io/project-todolist/",
   "name": "my-app-todo-lists",
   "version": "0.1.0",
   "private": true,
@@ -48,6 +47,12 @@
     ]
   },
   "devDependencies": {
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "gh-pages": "^4.0.0"
   }
 }

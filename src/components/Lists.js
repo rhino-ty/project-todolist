@@ -14,7 +14,12 @@ const StyledText = styled.div`
   font-weight: 700;
 `;
 
-const Lists = ({ listData = [], handleItemToggle, handleItemRevise, handleItemRemove }) => {
+const Lists = ({
+  listData = [],
+  handleItemToggle,
+  handleItemRevise,
+  handleItemRemove,
+}) => {
   return (
     <TodoListBlock>
       {listData.length ? (
